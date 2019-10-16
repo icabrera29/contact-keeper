@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://icabrera29:30667092@contact-keeper-fwtxn.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "lkasjdkjandbvasdv52646541"
+}
