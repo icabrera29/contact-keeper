@@ -6,7 +6,7 @@ const path = require('path');
 // connect Database
 connectDB();
 
-// Init Middleware
+// Middleware
 
 app.use(express.json({ extended: false }));
 
