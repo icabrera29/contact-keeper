@@ -82,6 +82,7 @@ const AuthState = props => {
       });
       loadUser();
     } catch (error) {
+      console.log('Entro en error');
       dispatch({
         type: LOGIN_FAIL,
         payload: error.response.data.msg
@@ -89,7 +90,11 @@ const AuthState = props => {
     }
   };
   // Logout
-  const logout = () => console.log('Load user');
+  const logout = () => {
+    dispatch({
+      type: LOGOUT
+    });
+  };
   // Clear Errors
   const clearErrors = () => {
     dispatch({

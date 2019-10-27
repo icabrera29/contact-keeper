@@ -1,9 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../context/contact/contactContext';
-import { CLEAR_CURRENT } from '../../context/types';
+import AlertContext from '../../context/alert/alertContext';
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
+  const alertContext = useContext(AlertContext);
+
+  const { clearErrors, error } = contactContext;
+  const { setAlert } = alertContext;
 
   const {
     addContact,
@@ -22,6 +26,10 @@ const ContactForm = () => {
         phone: '',
         type: 'personal'
       });
+    }
+    if (error) {
+      setAlert(error, 'danger');
+      clearErrors();
     }
   }, [contactContext, current]);
 
@@ -62,6 +70,7 @@ const ContactForm = () => {
         name="name"
         value={name}
         onChange={onChange}
+        required
       />
       <input
         type="text"
@@ -69,6 +78,7 @@ const ContactForm = () => {
         name="email"
         value={email}
         onChange={onChange}
+        required
       />
       <input
         type="text"
